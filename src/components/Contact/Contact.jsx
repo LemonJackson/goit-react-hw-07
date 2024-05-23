@@ -1,27 +1,27 @@
-import { IoPersonSharp } from 'react-icons/io5';
-import { FaSquarePhone } from 'react-icons/fa6';
+import { IoPersonSharp } from "react-icons/io5";
+import { FaSquarePhone } from "react-icons/fa6";
 
-import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contactsSlice';
+import { useDispatch } from "react-redux";
+import { deleteContact } from "../../redux/contactsOps";
 
-import css from './Contact.module.css';
+import css from "./Contact.module.css";
 
-export default function Contact({ name, number, id }) {
+export default function Contact({ contact }) {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-    dispatch(deleteContact(id));
+    dispatch(deleteContact(contact.id));
   };
 
   return (
     <>
       <p className={css.field}>
         <IoPersonSharp />
-        {name}
+        {contact.name}
       </p>
       <p className={css.field}>
         <FaSquarePhone />
-        {number}
+        {contact.number}
       </p>
       <button
         className={css.btn}
